@@ -1,8 +1,10 @@
 package modelo;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -13,8 +15,9 @@ public class correntista {
     private String nome;
     private String perfil;
     private float saldo;
-    @OneToMany
-    private List<Transacao> transacao;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "conta")
+    @JoinColumn(name = "conta")
+    private List<transacao> transacao;
 
     public String getConta() {
         return conta;
@@ -56,7 +59,13 @@ public class correntista {
         this.saldo = saldo;
     }
 
-    
-    
-    
+    public List<transacao> getTransacao() {
+        return transacao;
+    }
+
+    public void setTransacao(List<transacao> transacao) {
+        this.transacao = transacao;
+    }
+
+
 }
