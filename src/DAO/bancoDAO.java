@@ -2,6 +2,7 @@ package DAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Id;
 import javax.persistence.Persistence;
 import modelo.correntista;
 import static modelo.correntista_.conta;
@@ -19,12 +20,20 @@ public class bancoDAO {
         
         try{
         em.getTransaction().begin();
-        em.find(correntista.class, conta.getId());
+        em.find(correntista.class,conta);
         }finally{
             em.close();
         }
         return saldo;
     }
-            
+    
+    /*#Extrato - em cada movimentação mostrar:
+    data,
+    hora,
+    descrição
+    valor ( () caso negativo)
+    **/
+    
+    
             
 }
