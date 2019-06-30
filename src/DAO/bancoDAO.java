@@ -19,8 +19,8 @@ public class bancoDAO {
         EntityManager em = getEM();
         
         try{
-        em.getTransaction().begin();
-        em.find(correntista.class,conta);
+            em.getTransaction().begin();
+            em.find(correntista.class,conta);
         }finally{
             em.close();
         }
