@@ -210,11 +210,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonTUsuarioActionPerformed
 
     private void jButtonSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaldoActionPerformed
-        correntista c = new correntista();
-        bancoDAO bDao = new bancoDAO();
-        c = bDao.verSaldo(c);
-        System.out.println("Seu saldo é de: R$" + c.getSaldo());
-        JOptionPane.showMessageDialog(this, "Seu saldo é de: R$" + c.getSaldo(), "Saldo", JOptionPane.INFORMATION_MESSAGE, null);
+        //correntista c = new correntista();
+        //bancoDAO bDao = new bancoDAO();
+        //c = bDao.verSaldo(c);
+        //System.out.println("Seu saldo é de: R$" + c.getSaldo());
+        JOptionPane.showMessageDialog(this, "Seu saldo é de: R$", "Saldo", JOptionPane.INFORMATION_MESSAGE, null);
     }//GEN-LAST:event_jButtonSaldoActionPerformed
 
     private void jButtonTransfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransfActionPerformed

@@ -21,6 +21,7 @@ public class bancoDAO {
         try{
             em.getTransaction().begin();
             em.find(correntista.class,conta);
+            em.getTransaction().commit();
         }finally{
             em.close();
         }
