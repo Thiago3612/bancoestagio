@@ -15,7 +15,7 @@ public class bancoDAO {
     }
     
     //ver saldo - apenas o valor atualizado em R$
-    public correntista verSaldo(correntista saldo){
+    public correntista verSaldo(correntista vSaldo){
         EntityManager em = getEM();
         
         try{
@@ -25,16 +25,24 @@ public class bancoDAO {
         }finally{
             em.close();
         }
-        return saldo;
+        System.out.println("Saldo:"+vSaldo.getSaldo());
+        
+        return vSaldo;
     }
     
-    /*#Extrato - em cada movimentação mostrar:
-    data,
-    hora,
-    descrição
-    valor ( () caso negativo)
-    **/
-    
-    
+    //saque
+    public correntista saque(correntista vSaque){
+        EntityManager em = getEM();
+        try{
+            em.getTransaction().begin();
+            em.merge(vSaque);
+            em.getTransaction().commit();
+        } finally{
+            em.close();
+        }
+
+        return vSaque;
+        
+    }
             
 }
