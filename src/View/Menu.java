@@ -30,9 +30,9 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtConta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButtonSaldo = new javax.swing.JButton();
@@ -64,10 +64,10 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(txtConta, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2)
-                    .addComponent(jButton1))
+                    .addComponent(txtSenha)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -76,14 +76,14 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         abas.addTab("Login", jPanel1);
@@ -198,10 +198,20 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Correntista c = new Correntista();
+        bancoDAO dao = new bancoDAO();
+        c = dao.Consulta(c);
         
-        abas.setEnabledAt(1, true);
-        abas.setSelectedIndex(1);
-        abas.setEnabledAt(0, false);       
+        if(txtConta.getText().equals(c.getConta()) &&
+            txtSenha.getText().equals(c.getSenha())){
+        
+            
+            
+            abas.setEnabledAt(1, true);
+            abas.setSelectedIndex(1);
+            abas.setEnabledAt(0, false);       
+        }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -214,7 +224,7 @@ public class Menu extends javax.swing.JFrame {
     private void jButtonSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaldoActionPerformed
         Correntista c = new Correntista();
         bancoDAO bDao = new bancoDAO();
-        c = bDao.verSaldo(c);
+        c = bDao.Consulta(c);
         System.out.println("Seu saldo é de: R$" + c.getSaldo());
         JOptionPane.showMessageDialog(this, "Seu saldo é de: R$", "Saldo", JOptionPane.INFORMATION_MESSAGE, null);
     }//GEN-LAST:event_jButtonSaldoActionPerformed
@@ -319,7 +329,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtConta;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,11 +2,9 @@ package DAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Id;
 import javax.persistence.Persistence;
 import modelo.Correntista;
 import static modelo.Correntista_.conta;
-
 
 public class bancoDAO {
     public EntityManager getEM(){
@@ -15,36 +13,15 @@ public class bancoDAO {
         return factory.createEntityManager();
     }
     
-    //ver saldo - apenas o valor atualizado em R$
-    public Correntista verSaldo(Correntista vSaldo){
+    public Correntista Consulta(Correntista Conta){
         EntityManager em = getEM();
-        
+        Correntista c = null;
         try{
             em.getTransaction().begin();
-            em.find(Correntista.class, conta);
-            System.out.println("Saldo: R$"+vSaldo.getSaldo());
+            c = em.find(Correntista.class, conta);
         } finally{
             em.close();
         }
-        
-        
-        return vSaldo;
+        return c;
     }
-    
-    //saque
-    public float saque(float vSaque){
-        EntityManager em = getEM();
-        
-        try{
-            em.getTransaction().begin();
-            em.merge(vSaque);
-            em.getTransaction().commit();
-        } finally{
-            em.close();
-        }
-
-        return vSaque;
-        
-    }
-            
 }
