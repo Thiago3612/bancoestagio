@@ -4,8 +4,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Id;
 import javax.persistence.Persistence;
-import modelo.correntista;
-import static modelo.correntista_.conta;
+import modelo.Correntista;
+import static modelo.Correntista_.conta;
+
 
 public class bancoDAO {
     public EntityManager getEM(){
@@ -15,24 +16,25 @@ public class bancoDAO {
     }
     
     //ver saldo - apenas o valor atualizado em R$
-    public correntista verSaldo(correntista vSaldo){
+    public Correntista verSaldo(Correntista vSaldo){
         EntityManager em = getEM();
         
         try{
             em.getTransaction().begin();
-            em.find(correntista.class,conta);
-            em.getTransaction().commit();
-        }finally{
+            em.find(Correntista.class, conta);
+            System.out.println("Saldo: R$"+vSaldo.getSaldo());
+        } finally{
             em.close();
         }
-        System.out.println("Saldo:"+vSaldo.getSaldo());
+        
         
         return vSaldo;
     }
     
     //saque
-    public correntista saque(correntista vSaque){
+    public float saque(float vSaque){
         EntityManager em = getEM();
+        
         try{
             em.getTransaction().begin();
             em.merge(vSaque);

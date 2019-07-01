@@ -2,8 +2,10 @@ package View;
 
 import DAO.bancoDAO;
 import static java.lang.Float.parseFloat;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import modelo.correntista;
+import modelo.Correntista;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -210,10 +212,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonTUsuarioActionPerformed
 
     private void jButtonSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaldoActionPerformed
-        //correntista c = new correntista();
-        //bancoDAO bDao = new bancoDAO();
-        //c = bDao.verSaldo(c);
-        //System.out.println("Seu saldo é de: R$" + c.getSaldo());
+        Correntista c = new Correntista();
+        bancoDAO bDao = new bancoDAO();
+        c = bDao.verSaldo(c);
+        System.out.println("Seu saldo é de: R$" + c.getSaldo());
         JOptionPane.showMessageDialog(this, "Seu saldo é de: R$", "Saldo", JOptionPane.INFORMATION_MESSAGE, null);
     }//GEN-LAST:event_jButtonSaldoActionPerformed
 
@@ -231,6 +233,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonTransfActionPerformed
 
     private void jButtonExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtratoActionPerformed
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         JOptionPane.showMessageDialog(this, "Extrato detalhado", "Extrato", JOptionPane.INFORMATION_MESSAGE, null);
     }//GEN-LAST:event_jButtonExtratoActionPerformed
 
@@ -246,7 +249,11 @@ public class Menu extends javax.swing.JFrame {
         int opcao = JOptionPane.showConfirmDialog(this, "Deseja Sacar "
                     + valorSaque + "?", "Saque", JOptionPane.YES_NO_OPTION);
         
+        
         if(opcao==0){
+        //    if(correntista.getSaldo()<valorSaque){
+          //      JOptionPane.showInputDialog(this, "Saldo insuficiente!");
+          //  }
             JOptionPane.showMessageDialog(this, "Aguarde seu valor sairá em instantes!");
         }
     }//GEN-LAST:event_jButtonSaqueActionPerformed
