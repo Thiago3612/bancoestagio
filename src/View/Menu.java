@@ -29,7 +29,7 @@ public class Menu extends javax.swing.JFrame {
         abas = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonLogin = new javax.swing.JButton();
         txtConta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
@@ -47,10 +47,10 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setText("Nº da Conta");
 
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLogin.setText("Entrar");
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonLoginActionPerformed(evt);
             }
         });
 
@@ -67,7 +67,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(txtConta, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(jLabel3)
                     .addComponent(txtSenha)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jButtonLogin, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -82,7 +82,7 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jButtonLogin)
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
@@ -197,23 +197,23 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Correntista c = new Correntista();
-        bancoDAO dao = new bancoDAO();
-        c = dao.Consulta(c);
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+     //   Correntista c = new Correntista();
+     //   bancoDAO dao = new bancoDAO();
+     //   c = dao.Consulta(c);
         
-        if(txtConta.getText().equals(c.getConta()) &&
-            txtSenha.getText().equals(c.getSenha())){
+     //   if(txtConta.getText().equals(c.getConta()) &&
+     //       txtSenha.getText().equals(c.getSenha())){
         
             
             
             abas.setEnabledAt(1, true);
             abas.setSelectedIndex(1);
             abas.setEnabledAt(0, false);       
-        }
+     //   }
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonTUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTUsuarioActionPerformed
         abas.setEnabledAt(0, true);
@@ -238,6 +238,7 @@ public class Menu extends javax.swing.JFrame {
                     "Transferência", JOptionPane.YES_NO_OPTION);
         
         if(opcao==0){
+            
             JOptionPane.showMessageDialog(this, "Valor transferido com sucesso!");
         }
     }//GEN-LAST:event_jButtonTransfActionPerformed
@@ -316,9 +317,9 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane abas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonDeposito;
     private javax.swing.JButton jButtonExtrato;
+    private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonSVGerente;
     private javax.swing.JButton jButtonSaldo;
     private javax.swing.JButton jButtonSaque;

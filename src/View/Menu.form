@@ -56,7 +56,7 @@
                           <Component id="txtConta" pref="140" max="32767" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonLogin" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="245" max="32767" attributes="0"/>
                   </Group>
@@ -74,7 +74,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="116" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -86,12 +86,12 @@
                 <Property name="text" type="java.lang.String" value="N&#xba; da Conta"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jButtonLogin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLoginActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtConta">

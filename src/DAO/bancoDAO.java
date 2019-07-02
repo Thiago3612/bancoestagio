@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import modelo.Correntista;
-import static modelo.Correntista_.conta;
 
 public class bancoDAO {
     public EntityManager getEM(){
@@ -18,10 +17,12 @@ public class bancoDAO {
         Correntista c = null;
         try{
             em.getTransaction().begin();
-            c = em.find(Correntista.class, conta);
+            c = em.find(Correntista.class, Conta);
         } finally{
             em.close();
         }
         return c;
     }
+    
+    
 }
